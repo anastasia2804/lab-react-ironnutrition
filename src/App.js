@@ -3,12 +3,14 @@ import foods from './foods.json';
 import FoodBox from './components/FoodBox';
 import { Card, Row, Col, Divider, Input, Button } from 'antd';
 import AddFoodForm from './components/AddFoodForm';
+import SearchBar from './components/Search';
 
 import { useState } from 'react';
 
 function App() {
 
-  const [foodsArray, setFoodsArray] = useState(foods)
+  const [foodsArray, setFoodsArray] = useState(foods);
+  const [results, setResults] = useState([])
 
   const addNewFood = (newFood) => {
     const updatedFoodsArray = [...foodsArray, newFood];
@@ -18,6 +20,7 @@ function App() {
 
   return (
     <div className="App">
+    <SearchBar setFoodsArray={setFoodsArray} foodsArray={foodsArray} setResults={setResults} />
       <AddFoodForm addFood={addNewFood}/>
       <div>
         <Row>
