@@ -1,23 +1,9 @@
 import { Divider, Input } from 'antd';
-import { useState } from 'react';
-// import foods from './foods.json';
 
-
-const SearchBar = ({ foodsArray, setFoodsArray, setResults }) => {
-
-  // const [searchTerm, setResults] = useState('')
+const SearchBar = ({ setSearchTerm }) => {
 
   const handleSearch = (e) => {
-    console.log('changing!')
-    console.log(foodsArray)
-    console.log(e.target.value)
-    // setSearchTerm(e.target.value);
-    let searchArray = [...foodsArray]
-    let newArray = searchArray.filter((foods) => {
-      // console.log(foods.name, "FOODS")
-      return foods.name.toLowerCase().includes(e.target.value.toLowerCase())
-  })
-    setResults(newArray)
+    setSearchTerm(e.target.value);
   };
 
   return (
@@ -33,7 +19,6 @@ const SearchBar = ({ foodsArray, setFoodsArray, setResults }) => {
 }
 
 export default SearchBar;
-
 
 
 
